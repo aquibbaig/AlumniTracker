@@ -17,6 +17,7 @@ class Regalum extends Component {
     this.state = {
       firstname: '',
       lastname :'',
+      username :'',
 			password: '',
 			confirmPassword: '',
 			about:'',
@@ -79,7 +80,11 @@ class Regalum extends Component {
       <Form.Select placeholder='Expertise' fluid multiple selection options={ExpertiseOptions} onChange={this.handleChange} />
       <label><b>Add Skills</b></label>
       <Form.Dropdown placeholder='Skills' search multiple selection allowAdditions onChange={this.handleChange} />
-    <h3> Account Password : </h3>
+    <h3> Login Credentials : </h3>
+        <Form.Field>
+          <label>UserName</label>
+          <input name="username" placeholder="username" value = {this.state.username} onChange={this.handleChange}/>
+        </Form.Field>
     <div class = "equal width fields">
         <Form.Field>
           <label>Password</label>
