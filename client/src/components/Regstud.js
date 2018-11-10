@@ -47,28 +47,27 @@ class Regstud extends Component {
       <h1><center> Student Registration! </center></h1>
     <Form id="regStud" onSubmit={this.handleSubmit}>
       <h3> Personal Details : </h3>
-    <div class = "equal width fields">
-      <Form.Field>
-        <label>First Name</label>
-        <input name="firstname" placeholder="FirstName" value = {this.state.username} onChange={this.handleChange}/>
-      </Form.Field>
-      <Form.Field>
-        <label>Last Name</label>
-        <input name="lastname" placeholder="LastName" value = {this.state.username} onChange={this.handleChange}/>
-      </Form.Field>
-    </div>
-    
+      <Form.Group widths='equal'>
+        <Form.Field>
+          <label>First Name</label>
+          <input name="firstname" placeholder="FirstName" onChange={this.handleChange}/>
+        </Form.Field>
+        <Form.Field>
+          <label>Last Name</label>
+          <input name="lastname" placeholder="LastName"  onChange={this.handleChange}/>
+        </Form.Field>
+      </Form.Group>
      <Form.Select fluid label='Gender' name="gender" value={this.state.gender} options={GenderOptions} placeholder='Gender' onChange={this.handleChange} />
      <Form.TextArea name="about" value={this.state.about} label='About' placeholder='Tell us more about you...' onChange={this.handleChange} />
-     
+
      <h3> Academic Details : </h3>
      <Form.Field>
      <label><b>School</b></label>
         <input name="school" placeholder="School" value = {this.state.school} onChange={this.handleChange}/>
-     </Form.Field> 
-     <Form.Field>         
+     </Form.Field>
+     <Form.Field>
      <label><b>Intermediate(+2) College</b></label>
-        <input name="college" placeholder="Intermediate(+2) College" value = {this.state.college} onChange={this.handleChange}/>   
+        <input name="college" placeholder="Intermediate(+2) College" value = {this.state.college} onChange={this.handleChange}/>
       </Form.Field>
       <Form.Field>
      <label><b>Graduating College</b></label>
@@ -76,10 +75,10 @@ class Regstud extends Component {
         </Form.Field>
         <Form.Field>
      <label><b>Post Graduating College</b></label>
-        <input name="postgradcollege" placeholder="Post Graduating College" value = {this.state.postgradcollege} onChange={this.handleChange}/>   
+        <input name="postgradcollege" placeholder="Post Graduating College" value = {this.state.postgradcollege} onChange={this.handleChange}/>
         </Form.Field>
-    
-     
+
+
      <h3> Contact Details : </h3>
      <Form.Field>
        <label>Contact No.</label>
@@ -102,17 +101,21 @@ class Regstud extends Component {
     <Form.Select placeholder='Expertise' fluid multiple selection options={ExpertiseOptions} onChange={this.handleChange} />
     <label><b>Add Skills</b></label>
     <Form.Dropdown placeholder='Skills' search multiple selection allowAdditions onChange={this.handleChange} />
-  <h3> Account Password : </h3>
-  <div class = "equal width fields">
-      <Form.Field>
-        <label>Password</label>
-        <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
-      </Form.Field>
-      <Form.Field>
-        <label>Confirm Password</label>
-        <input name="confirmpassword" type="password" placeholder="ReType Your Password" value={this.state.password} onChange={this.handleChange}/>
-      </Form.Field>
-  </div>
+  <h3> Account Details : </h3>
+    <Form.Field>
+      <label>UserName</label>
+      <input name="username" placeholder="username" value = {this.state.username} onChange={this.handleChange}/>
+    </Form.Field>
+  <Form.Group widths='equal'>
+    <Form.Field>
+      <label>Password</label>
+      <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
+    </Form.Field>
+    <Form.Field>
+      <label>Confirm Password</label>
+      <input name="confirmpassword" type="password" placeholder="ReType Your Password" onChange={this.handleChange}/>
+    </Form.Field>
+  </Form.Group>
   <Form.Field>
     <Checkbox label='I agree to the Terms and Conditions' />
   </Form.Field>

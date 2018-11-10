@@ -98,7 +98,7 @@ class Regalum extends Component {
       <h3> Expertise And Skills : </h3>
       <label><b>Expertise</b></label>
       <Form.Select placeholder='Expertise' search fluid multiple selection options={ExpertiseOptions} onChange={this.handleExpertise} />
-    <h3> Login Credentials : </h3>
+    <h3> Account Details : </h3>
         <Form.Field>
           <label>UserName</label>
           <input name="username" placeholder="username" value = {this.state.username} onChange={this.handleChange}/>
