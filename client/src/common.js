@@ -255,6 +255,6 @@ export const ExpertiseOptions = [
   { key: 'NS', text: 'Network Security', value: 'NS' },
   { key: 'IS', text: 'Information Security', value: 'IS' },
   { key: 'DE', text: 'Design Engineering', value: 'DE' },
-  { key: 'GD', text: 'Graphic DEsigning', value: 'GD' },
+  { key: 'GD', text: 'Graphic Designing', value: 'GD' },
 
 ]

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-// import styled from 'styled-components';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Container, Form, Select, TextArea, Checkbox } from 'semantic-ui-react';
+import { Button, Container, Form, Checkbox } from 'semantic-ui-react';
 import { countryOptions } from '../common'
 import { ExpertiseOptions } from '../common'
 
 const GenderOptions = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
+  { key: 'm', text: 'Male', value: 'Male' },
+  { key: 'f', text: 'Female', value: 'Female' },
 ]
 
 
@@ -32,6 +31,23 @@ class Regalum extends Component {
     }
     // this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleGender = this.handleGender.bind(this)
+    this.handleMultiple = this.handleExpertise.bind(this)
+  }
+
+  handleGender(event, value) {
+    this.setState({
+      gender: value.value
+    })
+  }
+
+  handleExpertise(event, value) {
+    let arr = [...this.state.expertise,...value.value]
+    console.log(arr);
+    this.setState({
+      expertise: arr
+    })
   }
 
   handleChange(event) {
@@ -40,23 +56,27 @@ class Regalum extends Component {
   })
 }
 
+  handleSubmit() {
+    console.log(this.state);
+  }
+
   render() {
     return (
       <Container>
         <h1><center> Alumni Registration! </center></h1>
       <Form id="regAlum" onSubmit={this.handleSubmit}>
         <h3> Personal Details : </h3>
-      <div class = "equal width fields">
-				<Form.Field>
+      <Form.Group widths='equal'>
+        <Form.Field>
           <label>First Name</label>
-          <input name="firstname" placeholder="FirstName" value = {this.state.username} onChange={this.handleChange}/>
+          <input name="firstname" placeholder="FirstName" onChange={this.handleChange}/>
         </Form.Field>
         <Form.Field>
           <label>Last Name</label>
-          <input name="lastname" placeholder="LastName" value = {this.state.username} onChange={this.handleChange}/>
+          <input name="lastname" placeholder="LastName" onChange={this.handleChange}/>
         </Form.Field>
-      </div>
-       <Form.Select fluid label='Gender' name="gender" value={this.state.gender} options={GenderOptions} placeholder='Gender' onChange={this.handleChange} />
+      </Form.Group>
+       <Form.Select fluid label='Gender' name="gender" options={GenderOptions} placeholder='Gender' onChange={this.handleGender} />
        <Form.TextArea name="about" value={this.state.about} label='About' placeholder='Tell us more about you...' onChange={this.handleChange} />
        <h3> Contact Details : </h3>
        <Form.Field>
@@ -69,7 +89,7 @@ class Regalum extends Component {
        </Form.Field>
       <label><b>Location :</b></label>
       <div class = "equal width fields">
-      <Form.Select fluid name="country" value={this.state.country} label='Country' search options={countryOptions} placeholder='Country' onChange={this.handleChange} />
+      <Form.Select fluid name="country" label='Country' search options={countryOptions} placeholder='Country' onChange={this.handleChange} />
       <Form.Field>
         <label>City</label>
         <input name="city"  placeholder="Your Work City" value={this.state.city} onChange={this.handleChange}/>
@@ -77,24 +97,22 @@ class Regalum extends Component {
       </div>
       <h3> Expertise And Skills : </h3>
       <label><b>Expertise</b></label>
-      <Form.Select placeholder='Expertise' fluid multiple selection options={ExpertiseOptions} onChange={this.handleChange} />
-      <label><b>Add Skills</b></label>
-      <Form.Dropdown placeholder='Skills' search multiple selection allowAdditions onChange={this.handleChange} />
+      <Form.Select placeholder='Expertise' search fluid multiple selection options={ExpertiseOptions} onChange={this.handleExpertise} />
     <h3> Login Credentials : </h3>
         <Form.Field>
           <label>UserName</label>
           <input name="username" placeholder="username" value = {this.state.username} onChange={this.handleChange}/>
         </Form.Field>
-    <div class = "equal width fields">
-        <Form.Field>
-          <label>Password</label>
-          <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Confirm Password</label>
-          <input name="confirmpassword" type="password" placeholder="ReType Your Password" value={this.state.password} onChange={this.handleChange}/>
-        </Form.Field>
-    </div>
+    <Form.Group widths='equal'>
+      <Form.Field>
+        <label>Password</label>
+        <input name="password" type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
+      </Form.Field>
+      <Form.Field>
+        <label>Confirm Password</label>
+        <input name="confirmpassword" type="password" placeholder="ReType Your Password" onChange={this.handleChange}/>
+      </Form.Field>
+    </Form.Group>
     <Form.Field>
       <Checkbox label='I agree to the Terms and Conditions' />
     </Form.Field>

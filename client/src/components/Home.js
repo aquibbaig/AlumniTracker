@@ -1,17 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-
-const Button = styled.button`
-  display: inline-block;
-  background-color: #0877A0;
-  color:white;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid #0877A0;
-  border-radius: 3px;
-`;
-
+import { Button } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 
 class Home extends Component {
   render() {
@@ -19,8 +8,8 @@ class Home extends Component {
       <div>
         <br/>
         <br/><br/><br/><br/><br/><br/><br/>
-        <Button as="a" href="/regstud">Register as a Student</Button><br/><br/>
-        <Button as="a" href="/regalum">Register as an Alumni</Button>
+        <Button as="a" color='blue' href="/regstud">Register as a Student</Button><br/><br/>
+        <Button as="a" color='blue' href="/regalum">Register as an Alumni</Button>
       </div>
     );
   }
