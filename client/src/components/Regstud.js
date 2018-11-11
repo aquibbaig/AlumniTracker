@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Container, Form, Select, TextArea, Checkbox } from 'semantic-ui-react';
-import { countryOptions } from '../common'
-import { ExpertiseOptions } from '../common'
+import { Button, Container, Form, Checkbox } from 'semantic-ui-react';
+import { countryOptions, ExpertiseOptions, cityList } from '../common'
 
 const GenderOptions = [
   { key: 'm', text: 'Male', value: 'male' },
@@ -33,18 +31,54 @@ class Regstud extends Component {
 
     }
      // this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
-  }
+     this.handleChange = this.handleChange.bind(this)
+     this.handleSubmit = this.handleSubmit.bind(this)
+     this.handleGenderChange = this.handleGenderChange.bind(this)
+     this.handleExpertise = this.handleExpertise.bind(this)
+     this.handleCountryChange = this.handleCountryChange.bind(this)
+     this.handleCityChange = this.handleCityChange.bind(this)
+   }
 
-  handleChange(event) {
-  this.setState({
-    [event.target.name]: event.target.value
-  })
-}
+   handleGenderChange(event, value) {
+     this.setState({
+       gender: value.value
+     })
+   }
+
+   handleCountryChange(event, value) {
+     this.setState({
+       country: value.value
+     })
+   }
+
+   handleCityChange(event, value) {
+     this.setState({
+       city: value.value
+     })
+   }
+
+   handleExpertise(event, value) {
+     let arr = value.value
+     console.log(arr);
+     this.setState({
+       expertise: arr
+     })
+   }
+
+   handleChange(event) {
+   this.setState({
+     [event.target.name]: event.target.value
+   })
+ }
+
+   handleSubmit() {
+     console.log(this.state);
+   }
+
   render() {
     return (
       <Container>
-      <h1><center> Student Registration! </center></h1>
+      <h1><center> Student Registration </center></h1>
     <Form id="regStud" onSubmit={this.handleSubmit}>
       <h3> Personal Details : </h3>
       <Form.Group widths='equal'>
@@ -57,7 +91,7 @@ class Regstud extends Component {
           <input name="lastname" placeholder="LastName"  onChange={this.handleChange}/>
         </Form.Field>
       </Form.Group>
-     <Form.Select fluid label='Gender' name="gender" value={this.state.gender} options={GenderOptions} placeholder='Gender' onChange={this.handleChange} />
+     <Form.Select fluid label='Gender' name="gender" options={GenderOptions} placeholder='Gender' onChange={this.handleGenderChange} />
      <Form.TextArea name="about" value={this.state.about} label='About' placeholder='Tell us more about you...' onChange={this.handleChange} />
 
      <h3> Academic Details : </h3>
@@ -90,17 +124,12 @@ class Regstud extends Component {
      </Form.Field>
     <label><b>Location :</b></label>
     <div class = "equal width fields">
-    <Form.Select fluid name="country" value={this.state.country} label='Country' search options={countryOptions} placeholder='Country' onChange={this.handleChange} />
-    <Form.Field>
-      <label>City</label>
-      <input name="city"  placeholder="Your Work City" value={this.state.city} onChange={this.handleChange}/>
-    </Form.Field>
+    <Form.Select fluid name="country" label='Country' search options={countryOptions} placeholder='Country' onChange={this.handleCountryChange} />
+    <Form.Select fluid name="city" label='City' search options={cityList} placeholder='City' onChange={this.handleCityChange} />
     </div>
     <h3> Expertise And Skills : </h3>
     <label><b>Expertise</b></label>
     <Form.Select placeholder='Expertise' fluid multiple selection options={ExpertiseOptions} onChange={this.handleChange} />
-    <label><b>Add Skills</b></label>
-    <Form.Dropdown placeholder='Skills' search multiple selection allowAdditions onChange={this.handleChange} />
   <h3> Account Details : </h3>
     <Form.Field>
       <label>UserName</label>

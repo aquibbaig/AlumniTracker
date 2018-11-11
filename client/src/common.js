@@ -258,3 +258,13 @@ export const ExpertiseOptions = [
   { key: 'GD', text: 'Graphic Designing', value: 'GD' },
 
 ]
+
+export const cityList = [
+  { key: 'BNG', text: 'Bengaluru', value: 'BNG'},
+  { key: 'DLH', text: 'New Delhi', value: 'DLH'},
+  { key: 'HYD', text: 'Hyderabad', value: 'HYD'},
+  { key: 'MUM', text: 'Mumbai', value: 'MUM'},
+  { key: 'CHN', text: 'Chennai', value: 'CHN'},
+  { key: 'KOL', text: 'Kolkata', value: 'KOL'},
+  { key: 'PUN', text: 'Pune', value: 'PUN'}
+]

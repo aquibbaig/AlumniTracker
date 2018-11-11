@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import { Button, Container, Form, Checkbox } from 'semantic-ui-react';
-import { countryOptions } from '../common'
-import { ExpertiseOptions } from '../common'
+import { Button, Container, Form, Checkbox, Select } from 'semantic-ui-react';
+import { countryOptions, ExpertiseOptions, cityList } from '../common';
+import 'whatwg-fetch';
 
 const GenderOptions = [
   { key: 'm', text: 'Male', value: 'Male' },
@@ -26,24 +26,38 @@ class Regalum extends Component {
       country:'',
       city:'',
       expertise: [],
-      skills: [],
+      workplace: ''
 
     }
     // this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleGender = this.handleGender.bind(this)
-    this.handleMultiple = this.handleExpertise.bind(this)
+    this.handleGenderChange = this.handleGenderChange.bind(this)
+    this.handleExpertise = this.handleExpertise.bind(this)
+    this.handleCountryChange = this.handleCountryChange.bind(this)
+    this.handleCityChange = this.handleCityChange.bind(this)
   }
 
-  handleGender(event, value) {
+  handleGenderChange(event, value) {
     this.setState({
       gender: value.value
     })
   }
 
+  handleCountryChange(event, value) {
+    this.setState({
+      country: value.value
+    })
+  }
+
+  handleCityChange(event, value) {
+    this.setState({
+      city: value.value
+    })
+  }
+
   handleExpertise(event, value) {
-    let arr = [...this.state.expertise,...value.value]
+    let arr = value.value
     console.log(arr);
     this.setState({
       expertise: arr
@@ -58,12 +72,23 @@ class Regalum extends Component {
 
   handleSubmit() {
     console.log(this.state);
+    fetch('http://localhost:8080/alumni', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(res => {
+        console.log(res);
+      })
   }
 
   render() {
     return (
       <Container>
-        <h1><center> Alumni Registration! </center></h1>
+        <br />
+        <h1><center> Alumni Registration </center></h1>
       <Form id="regAlum" onSubmit={this.handleSubmit}>
         <h3> Personal Details : </h3>
       <Form.Group widths='equal'>
@@ -76,7 +101,7 @@ class Regalum extends Component {
           <input name="lastname" placeholder="LastName" onChange={this.handleChange}/>
         </Form.Field>
       </Form.Group>
-       <Form.Select fluid label='Gender' name="gender" options={GenderOptions} placeholder='Gender' onChange={this.handleGender} />
+       <Form.Select fluid label='Gender' name="gender" options={GenderOptions} placeholder='Gender' onChange={this.handleGenderChange} />
        <Form.TextArea name="about" value={this.state.about} label='About' placeholder='Tell us more about you...' onChange={this.handleChange} />
        <h3> Contact Details : </h3>
        <Form.Field>
@@ -89,13 +114,13 @@ class Regalum extends Component {
        </Form.Field>
       <label><b>Location :</b></label>
       <div class = "equal width fields">
-      <Form.Select fluid name="country" label='Country' search options={countryOptions} placeholder='Country' onChange={this.handleChange} />
-      <Form.Field>
-        <label>City</label>
-        <input name="city"  placeholder="Your Work City" value={this.state.city} onChange={this.handleChange}/>
-      </Form.Field>
+      <Select fluid name="country" label='Country' search options={countryOptions} placeholder='Country' onChange={this.handleCountryChange} />
+        <Select fluid name="city" label='City' search options={cityList} placeholder='City' onChange={this.handleCityChange} />
       </div>
-      <h3> Expertise And Skills : </h3>
+
+      <h3>Workplace and Expertise : </h3>
+      <label><b>Workplace</b></label>
+      <input name="workplace"  placeholder="Your Workplace or Company" value={this.state.workplace} onChange={this.handleChange}/>
       <label><b>Expertise</b></label>
       <Form.Select placeholder='Expertise' search fluid multiple selection options={ExpertiseOptions} onChange={this.handleExpertise} />
     <h3> Account Details : </h3>
