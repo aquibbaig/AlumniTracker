@@ -72,7 +72,7 @@ class Regalum extends Component {
 
   handleSubmit() {
     console.log(this.state);
-    fetch('http://localhost:8080/alumni', {
+    fetch('http://localhost:8080/users/alumReg', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ class Regalum extends Component {
       body: JSON.stringify(this.state)
     })
       .then(res => {
-        console.log(res);
+        console.log(res.statusText);
       })
   }
 

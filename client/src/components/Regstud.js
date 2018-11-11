@@ -14,6 +14,7 @@ class Regstud extends Component {
     this.state = {
       firstname: '',
       lastname :'',
+      username: '',
 			password: '',
 			confirmPassword: '',
 			about:'',
@@ -26,8 +27,7 @@ class Regstud extends Component {
       skills: [],
       college:'',
       school:'',
-      gradcollege:'',
-      postgradcollege:'',
+      gradcollege:''
 
     }
      // this.handleSubmit = this.handleSubmit.bind(this)
@@ -71,9 +71,20 @@ class Regstud extends Component {
    })
  }
 
-   handleSubmit() {
-     console.log(this.state);
-   }
+ handleSubmit() {
+   console.log(this.state);
+   fetch('http://localhost:8080/users/studReg', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(this.state)
+   })
+     .then(res => {
+       console.log(res.statusText);
+     })
+ }
+
 
   render() {
     return (
