@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
+import { Redirect } from 'react-router-dom'
 import { Button, Container, Form, Checkbox, Select } from 'semantic-ui-react';
 import { countryOptions, ExpertiseOptions, cityList } from '../common';
 import 'whatwg-fetch';
@@ -81,10 +82,26 @@ class Regalum extends Component {
     })
       .then(res => {
         console.log(res.statusText);
+        if(res.status == 200){
+          console.log("Successfull Registration")
+          this.setState({
+            redirectTo : '/alumniLogin'
+          })
+        }
+        else{
+          console.log("Error Registering Account")
+        }
+      }).catch(error => {
+        console.log("Error : ")
+        console.log(error)
       })
   }
 
   render() {
+    if (this.state.redirectTo) {
+		return <Redirect to = {{ pathname: this.state.redirectTo }} />
+	}
+  else{
     return (
       <Container>
         <br />
@@ -147,6 +164,7 @@ class Regalum extends Component {
       </Form>
     </Container>
     );
+  }
   }
 }
 

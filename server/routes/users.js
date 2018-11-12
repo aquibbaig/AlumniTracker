@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const alumniModel = require('../models/alumnus')
 const studentModel = require('../models/students')
+const passport = require('../passport');
+const jwt = require('jsonwebtoken')
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -67,8 +69,62 @@ router.post('/studReg',  (req, res) => {
             })
         }
     })
+  })
+
+router.post('/alumniLogin',
+        function (req, res, next) {
+            console.log('routes/user.js, login, req.body: ');
+            console.log(req.body)
+            next()
+        },
+        passport.authenticate('local', {session: false}),
+        (req, res) => {
+            const token = jwt.sign({username: req.user.username}, "eita_jwt_secret");
+            console.log('logged in', req.user);
+            alumniModel.find({username: req.user.username}, (err,data) => {
+              if(err) console.log(err);
+              else {
+                console.log(token)
+                console.log(req.user.username)
+                return res.send({username: req.user.username, token, details: data[0]})
+                console.log("User Verified")
+              }
+            })
+        }
+
+    )
+
+  router.get('/:token', (req, res, next) => {
+      console.log('===== user!!======')
+      console.log(req.params.token);
+      jwt.verify(req.params.token, 'eita_jwt_secret', function(err, decoded) {
+        if(err) {
+          console.log("not verified")
+          return res.status(200).send(err);
+        }
+        else {
+        console.log(decoded) //if session exists find by username and the send the whole data
+        alumniModel.find({username: decoded.username}, (err,data) => {
+          if(err) console.log(err);
+          else {
+            return res.status(200).send(data[0])
+          }
+        })
+      }
+      })
+  })
+
+router.post('/logout', (req, res) => {
+      if (req.user) {
+          req.logout()
+          res.send({ msg: 'logging out' })
+      } else {
+          res.send({ msg: 'no user to log out' })
+      }
+  })
 
 
-})
+
+
 
 module.exports = router;
