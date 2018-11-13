@@ -68,6 +68,8 @@ render(){
     <div>
       <Container>
         <br />
+        <br />
+        <br />
         <Grid columns={2} >
           <Grid.Row>
             <Grid.Column width={4}>

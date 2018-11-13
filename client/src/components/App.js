@@ -15,6 +15,7 @@ import {AlumniCategoryOptions} from '../common';
 import {StudentCategoryOptions} from '../common';
 import Events from './Events';
 import Feed from './Feed';
+import UserInfo from './UserInfo';
 import 'whatwg-fetch';
 
 
@@ -94,8 +95,8 @@ class App extends Component {
             <Route exact path="/regstud" component={Regstud}/>
             <Route exact path="/regalum" component={Regalum}/>
             <Route exact path="/search" component={Search}/>
-            <Route exact path="/studentNewpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} options={StudentCategoryOptions} /> } />
-            <Route exact path="/alumniNewpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} options={AlumniCategoryOptions} /> } />
+            <Route exact path="/studentNewpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} name="student" options={StudentCategoryOptions} /> } />
+            <Route exact path="/alumniNewpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} name="alumni" options={AlumniCategoryOptions} /> } />
             <Route exact path="/alumniLogin" render={() => <AlumniLogin updateUser={this.updateUser} />} />
             <Route exact path="/studentLogin" render={() => <StudentLogin updateUser={this.updateUser} />} />
             <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} profiles={this.state.profiles}/>} />
@@ -103,6 +104,7 @@ class App extends Component {
             <Route exact path="/searchProfile" render={() => <SearchProfile profiles={this.state.profiles} /> } />
             <Route exact path="/jobs" component={Jobs} />
             <Route exact path="/events" component={Events} />
+            <Route path="/users/:userId" component={UserInfo} />
             <Route exact path="/feed" component={Feed} />
           </Switch>
         </div>

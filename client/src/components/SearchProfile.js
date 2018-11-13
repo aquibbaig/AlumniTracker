@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import SearchInput, {createFilter} from 'react-search-input'
 import '../styles/react-search-input.css'
 import {Card, Image, Container, Button} from 'semantic-ui-react'
@@ -24,18 +25,20 @@ class SearchProfile extends Component {
           {
             filteredEmails.map(profile => {
               return (
-                <Card>
-                  <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlMNPszBzrblPa1wEIpULUqm9W2tDJpDL6lcz5cr6yZSpBjiVhTw' />
-                  <Card.Content>
-                    <Card.Header>{profile.firstname} {profile.lastname}</Card.Header>
-                    <Card.Meta>
-                      <span className='date'>{profile.about}</span>
-                    </Card.Meta>
-                    <Card.Description>based in {profile.city}</Card.Description>
-                  </Card.Content>
-                </Card>)
-              })
-            }
+                  <Card>
+                    <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlMNPszBzrblPa1wEIpULUqm9W2tDJpDL6lcz5cr6yZSpBjiVhTw' />
+                    <Card.Content>
+                      <Link to={`/users/${profile.username}`}>
+                      <Card.Header>{profile.firstname} {profile.lastname}</Card.Header>
+                    </Link>
+                      <Card.Meta>
+                        <span className='date'>{profile.about}</span>
+                      </Card.Meta>
+                      <Card.Description>based in {profile.city}</Card.Description>
+                    </Card.Content>
+                  </Card>
+              )}
+            )}
         </Card.Group>
       </Container>
     )
