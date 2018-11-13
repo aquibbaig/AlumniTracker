@@ -6,7 +6,9 @@ import Regstud from './Regstud';
 import Search from './Search';
 import AlumniLogin from './AlumniLogin';
 import AlumniProfile from './AlumniProfile'
-import newPost from './newPost'
+import StudentLogin from './StudentLogin';
+import StudentProfile from './StudentProfile';
+import NewPost from './newPost';
 import 'whatwg-fetch';
 
 class App extends Component {
@@ -32,6 +34,7 @@ class App extends Component {
 
   getUser() {
     let token = localStorage.getItem('jwtToken');
+    console.log(token)
     fetch('http://localhost:8080/users/' + token ,{
       method: 'GET'
     })
@@ -67,9 +70,11 @@ class App extends Component {
             <Route exact path="/regstud" component={Regstud}/>
             <Route exact path="/regalum" component={Regalum}/>
             <Route exact path="/search" component={Search}/>
+            <Route exact path="/newpost" component={NewPost} />
             <Route exact path="/alumniLogin" render={() => <AlumniLogin updateUser={this.updateUser} />} />
-            <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />  //have to send data
-            <Route exact path="/newpost" component={newPost} />
+            <Route exact path="/studentLogin" render={() => <StudentLogin updateUser={this.updateUser} />} />
+            <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />
+            <Route exact path="/studentProfile" render={() => <StudentProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />
           </Switch>
         </div>
       </Router>

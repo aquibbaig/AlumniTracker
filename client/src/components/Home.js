@@ -19,7 +19,9 @@ class Home extends Component {
       <div>
         <br/>
         <br/><br/><br/><br/><br/><br/><br/>
-        <Button as="a" color='blue' href="/regstud">Register as a Student</Button><br/><br/>
+        <Button as="a" color='blue' href="/regstud">Register as a Student</Button>
+        <Button as="a" color='blue' href="/studentLogin">Login as a Student</Button>
+        <br/><br/>
         <Button as="a" color='blue' href="/regalum">Register as an Alumni</Button>
         <Button as="a" color='blue' href="/alumniLogin">Login as an Alumni</Button>
       </div>

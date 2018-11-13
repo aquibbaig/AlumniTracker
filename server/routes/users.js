@@ -77,11 +77,35 @@ router.post('/alumniLogin',
             console.log(req.body)
             next()
         },
-        passport.authenticate('local', {session: false}),
+        passport.authenticate('alumni-local', {session: false}),
         (req, res) => {
             const token = jwt.sign({username: req.user.username}, "eita_jwt_secret");
             console.log('logged in', req.user);
             alumniModel.find({username: req.user.username}, (err,data) => {
+              if(err) console.log(err);
+              else {
+                console.log(token)
+                console.log(req.user.username)
+                return res.send({username: req.user.username, token, details: data[0]})
+                console.log("User Verified")
+              }
+            })
+        }
+
+    )
+
+router.post('/studentLogin',
+        function (req, res, next) {
+            console.log('routes/user.js, login, req.body: ');
+            console.log(req.body)
+            next()
+        },
+        passport.authenticate('student-local', {session: false}),
+        (req, res) => {
+            console.log("Authenticated")
+            const token = jwt.sign({username: req.user.username}, "eita_jwt_secret");
+            console.log('logged in', req.user);
+            studentModel.find({username: req.user.username}, (err,data) => {
               if(err) console.log(err);
               else {
                 console.log(token)
@@ -105,8 +129,25 @@ router.post('/alumniLogin',
         else {
         console.log(decoded) //if session exists find by username and the send the whole data
         alumniModel.find({username: decoded.username}, (err,data) => {
-          if(err) console.log(err);
+          console.log("Verifiying In Alumni");
+          console.log(data)
+          if(err){
+            console.log(err)
+          }
+          if(data.length == 0){
+            console.log("Veriying In Students")
+            studentModel.find({username: decoded.username}, (err, data) => {
+              if(err){
+                console.log(err);
+              }
+              else {
+                console.log("Sent from Students")
+                return res.status(200).send(data[0])
+              }
+            })
+          }
           else {
+            console.log("Sent form Alumni");
             return res.status(200).send(data[0])
           }
         })

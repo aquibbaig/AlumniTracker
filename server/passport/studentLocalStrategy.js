@@ -1,19 +1,23 @@
-const Alumni = require('../models/alumnus')
+const Student = require('../models/students')
 const LocalStrategy = require('passport-local').Strategy
 
-const strategy = new LocalStrategy(
+const studentStrategy = new LocalStrategy(
 	{
 		usernameField: 'username' // not necessary, DEFAULT
 	},
 	function(username, password, done) {
-		Alumni.findOne({ username: username }, (err, user) => {
+		console.log("finding");
+		Student.findOne({ username: username }, (err, user) => {
 			if (err) {
+				console.log(err)
 				return done(err)
 			}
 			if (!user) {
+				console.log("Incorrect Username");
 				return done(null, false, { message: 'Incorrect username' })
 			}
 			if (!user.checkPassword(password)) {
+				console.log("Incorrect Password")
 				return done(null, false, { message: 'Incorrect password' })
 			}
 			return done(null, user)
@@ -21,4 +25,4 @@ const strategy = new LocalStrategy(
 	}
 )
 
-module.exports = strategy
+module.exports = studentStrategy

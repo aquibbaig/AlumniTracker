@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { Header, Button, Image, Divider } from 'semantic-ui-react';
 import Home from './Home';
 
-class AlumniProfile extends Component {
+class StudentProfile extends Component {
   constructor(){
     super();
     this.state = {
@@ -60,7 +60,7 @@ componentDidMount() {
 //     console.log(prevProps);
 //     console.log(this.props);
 //     if(this.props.userdata !== prevProps.userdata) {
-      // this.setState({
+//       this.setState({
         // firstname : this.props.userdata.firstname,
         // lastname : this.props.userdata.lastname,
         // gender : this.props.userdata.gender,
@@ -71,8 +71,8 @@ componentDidMount() {
         // city : this.props.userdata.city,
         // expertise : this.props.userdata.expertise,
         // about : this.props.userdata.about
-      // })
-
+  //     })
+  //
   //   }
   // }
 
@@ -98,4 +98,4 @@ else {
 }
 }
 
-export default AlumniProfile;
+export default StudentProfile;
