@@ -6,6 +6,7 @@ import Regstud from './Regstud';
 import Search from './Search';
 import AlumniLogin from './AlumniLogin';
 import AlumniProfile from './AlumniProfile'
+import newPost from './newPost'
 import 'whatwg-fetch';
 
 class App extends Component {
@@ -68,6 +69,7 @@ class App extends Component {
             <Route exact path="/search" component={Search}/>
             <Route exact path="/alumniLogin" render={() => <AlumniLogin updateUser={this.updateUser} />} />
             <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />  //have to send data
+            <Route exact path="/newpost" component={newPost} />
           </Switch>
         </div>
       </Router>
