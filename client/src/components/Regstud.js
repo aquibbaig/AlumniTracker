@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
+import { Redirect } from 'react-router-dom';
 import { Button, Container, Form, Checkbox } from 'semantic-ui-react';
 import { countryOptions, ExpertiseOptions, cityList, collegeList } from '../common'
 
@@ -88,13 +89,30 @@ class Regstud extends Component {
    })
      .then(res => {
        console.log(res.statusText);
+       if(res.status == 200){
+         console.log("Successfull Registration")
+         this.setState({
+           redirectTo : '/studentLogin'
+         })
+       }
+       else{
+         console.log("Error Registering Account")
+       }
+
+     }).catch(error => {
+       console.log("Error :")
+       console.log(error)
      })
  }
 
 
   render() {
+    if (this.state.redirectTo) {
+		return <Redirect to = {{ pathname: this.state.redirectTo }} />
+	}
+  else{
     return (
-      
+
       <div className="container-fluid" style={{background:'blue'}}>
       <br />
       <div className="container" style={{ background:'white'}}>
@@ -161,6 +179,7 @@ class Regstud extends Component {
   </div>
   </div>
     );
+  }
   }
 }
 
