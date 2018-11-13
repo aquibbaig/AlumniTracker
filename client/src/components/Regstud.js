@@ -88,8 +88,11 @@ class Regstud extends Component {
 
   render() {
     return (
-      <Container>
-      <h1><center> Student Registration </center></h1>
+      
+      <div className="container-fluid" style={{background:'blue'}}>
+      <br />
+      <div className="container" style={{ background:'white'}}>
+      <h1><center> STUDENT REGISTRATION </center></h1>
     <Form id="regStud" onSubmit={this.handleSubmit}>
       <h3> Personal Details : </h3>
       <Form.Group widths='equal'>
@@ -161,9 +164,11 @@ class Regstud extends Component {
   </Form.Field>
 
 
-      <Button type='submit'>SignUp</Button>
+      <Button type='submit' style={{background:'#2C79D6', color:'white'}}>SignUp</Button>
     </Form>
-  </Container>
+    <br/>
+  </div>
+  </div>
     );
   }
 }

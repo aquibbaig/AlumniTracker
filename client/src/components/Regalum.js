@@ -103,9 +103,10 @@ class Regalum extends Component {
 	}
   else{
     return (
-      <Container>
-        <br />
-        <h1><center> Alumni Registration </center></h1>
+      <div className="container-fluid" style={{background:'blue'}}>
+      <br/>
+      <div className="container" style={{background:'white'}}>
+        <h1><center> ALUMNI REGISTRATION</center></h1>
       <Form id="regAlum" onSubmit={this.handleSubmit}>
         <h3> Personal Details : </h3>
       <Form.Group widths='equal'>
@@ -159,10 +160,12 @@ class Regalum extends Component {
       <Checkbox label='I agree to the Terms and Conditions' />
     </Form.Field>
 
-
-        <Button type='submit'>SignUp</Button>
+        <br/>
+        <Button type='submit' style={{background:'#2C79D6', color:'white'}}>SignUp</Button>
       </Form>
-    </Container>
+      <br/>
+    </div>
+    </div>
     );
   }
   }
