@@ -90,7 +90,7 @@ class App extends Component {
             <Route exact path="/regstud" component={Regstud}/>
             <Route exact path="/regalum" component={Regalum}/>
             <Route exact path="/search" component={Search}/>
-            <Route exact path="/newpost" component={NewPost} />
+            <Route exact path="/newpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} /> } />
             <Route exact path="/alumniLogin" render={() => <AlumniLogin updateUser={this.updateUser} />} />
             <Route exact path="/studentLogin" render={() => <StudentLogin updateUser={this.updateUser} />} />
             <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />

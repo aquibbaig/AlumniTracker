@@ -278,3 +278,10 @@ export const collegeList = [
   { key: 'GITA', text: 'GITA', value: 'GITA'},
   { key: 'IGIT', text: 'IGIT', value: 'IGIT'}
 ]
+
+export const categoryOptions = [
+  { key: 'Internship', text: 'Internship', value: 'Internship'},
+  { key: 'Job', text: 'Job', value: 'Job'},
+  { key: 'Reserach', text: 'Reserach', value: 'Reserach'},
+  { key: 'Others', text: 'Others', value: 'Others'}
+]

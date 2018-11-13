@@ -4,6 +4,7 @@ import { Header, Button, Image, Divider, Grid, Container } from 'semantic-ui-rea
 import Home from './Home';
 import StudentSideBar from './StudentSideBar'
 import SearchProfile from './SearchProfile'
+import newPost from './newPost';
 
 class StudentProfile extends Component {
   constructor(){
@@ -42,21 +43,21 @@ logout(event){
     })
 }
 
-// componentDidMount() {
-//   console.log(this.props);
-//   this.setState({
-//     firstname : this.props.userdata.firstname,
-//     lastname : this.props.userdata.lastname,
-//     gender : this.props.userdata.gender,
-//     username : this.props.userdata.username,
-//     email : this.props.userdata.email,
-//     contactNo : this.props.userdata.contactNo,
-//     country : this.props.userdata.country,
-//     city : this.props.userdata.city,
-//     expertise : this.props.userdata.expertise,
-//     about : this.props.userdata.about
-//   })
-// }
+componentDidMount() {
+  console.log(this.props);
+  this.setState({
+    firstname : this.props.userdata.firstname,
+    lastname : this.props.userdata.lastname,
+    gender : this.props.userdata.gender,
+    username : this.props.userdata.username,
+    email : this.props.userdata.email,
+    contactNo : this.props.userdata.contactNo,
+    country : this.props.userdata.country,
+    city : this.props.userdata.city,
+    expertise : this.props.userdata.expertise,
+    about : this.props.userdata.about
+  })
+}
 
 
 

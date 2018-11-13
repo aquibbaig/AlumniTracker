@@ -9,9 +9,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/newpost', (req, res, next) => {
   console.log(req.body.date);
+  console.log(req.body.username);
   const model = new postModel({
     post: req.body.post,
-    postDate: req.body.date
+    postDate: req.body.date,
+    category: req.body.category,
+    username: req.body.username,
+    email: req.body.email
   })
   console.log(model);
   model.save()

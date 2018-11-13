@@ -7,6 +7,7 @@ const StudentSideBar = ({curr}) => {
       <Menu vertical>
         <Link to="/studentProfile"><Menu.Item name='feed' active={curr === 'feed'}>Feed</Menu.Item></Link>
         <Link to="/jobs"><Menu.Item name='jobs' active={curr === 'jobs'}>Jobs and Internships</Menu.Item></Link>
+        <Link to="/newPost"><Menu.Item name='NewPost' active={curr === 'NewPost'}>Post Here</Menu.Item></Link>
         <Menu.Item name='help' active={curr === 'help'}>Ask for help</Menu.Item>
       </Menu>
   );

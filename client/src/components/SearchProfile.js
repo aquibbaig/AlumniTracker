@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import SearchInput, {createFilter} from 'react-search-input'
 import '../styles/react-search-input.css'
-import {Card, Image, Container} from 'semantic-ui-react'
+import {Card, Image, Container, Button} from 'semantic-ui-react'
 
 const KEYS_TO_FILTERS = ['firstname', 'city']
 

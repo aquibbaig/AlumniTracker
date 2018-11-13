@@ -6,7 +6,10 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 var postSchema = new Schema({
   post: { type: String },
-  postDate: { type: String}
+  postDate: { type: String},
+  category: {type: String},
+  username: {type:  String},
+  email: {type: String}
 });
 
 
