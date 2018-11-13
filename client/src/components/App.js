@@ -13,7 +13,8 @@ import SearchProfile from './SearchProfile'
 import Jobs from './JobInternship';
 import {AlumniCategoryOptions} from '../common';
 import {StudentCategoryOptions} from '../common';
-import Events from './Events'
+import Events from './Events';
+import Feed from './Feed';
 import 'whatwg-fetch';
 
 
@@ -102,6 +103,7 @@ class App extends Component {
             <Route exact path="/searchProfile" render={() => <SearchProfile profiles={this.state.profiles} /> } />
             <Route exact path="/jobs" component={Jobs} />
             <Route exact path="/events" component={Events} />
+            <Route exact path="/feed" component={Feed} />
           </Switch>
         </div>
       </Router>

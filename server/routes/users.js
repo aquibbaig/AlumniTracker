@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const alumniModel = require('../models/alumnus')
 const studentModel = require('../models/students')
+const postModel = require('../models/post')
 const passport = require('../passport');
 const jwt = require('jsonwebtoken')
 /* GET users listing. */
@@ -174,6 +175,18 @@ router.get('/all/profiles', (req,res) => {
     }
   })
 })
+
+router.get('/all/posts', (req,res) => {
+  postModel.find({}, (err, data) => {
+    if(err) {
+      console.log(err);
+    }
+    else{
+      res.send(data)
+    }
+  })
+})
+
 
 
 
