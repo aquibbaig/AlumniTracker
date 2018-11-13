@@ -164,6 +164,17 @@ router.post('/logout', (req, res) => {
       }
   })
 
+router.get('/all/profiles', (req,res) => {
+  alumniModel.find({}, (err, data) => {
+    if(err) {
+      console.log(err);
+    }
+    else{
+      res.send(data)
+    }
+  })
+})
+
 
 
 
