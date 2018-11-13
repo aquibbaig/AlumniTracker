@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { Header, Button, Image, Divider } from 'semantic-ui-react';
+import { Header, Button, Image, Divider, Grid, Container } from 'semantic-ui-react';
 import Home from './Home';
+import StudentSideBar from './StudentSideBar'
+import SearchProfile from './SearchProfile'
 
 class StudentProfile extends Component {
   constructor(){
@@ -63,10 +65,20 @@ render(){
     //data is present in the state of the component
   return(
     <div>
-      <Header as = "h1">{this.state.username} </Header>
-      <p> {this.state.about} </p>
+      <Container>
+        <Grid columns={2} >
+          <Grid.Row>
+            <Grid.Column width={4}>
+              <StudentSideBar curr="feed" />
+            </Grid.Column>
+            <Grid.Column width={9}>
+              <SearchProfile profiles={this.props.profiles}/>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
 
-      <Button color="red" onClick={this.logout}>LogOut</Button>
+        <Button color="red" onClick={this.logout}>LogOut</Button>
+      </Container>
     </div>
   );
 }

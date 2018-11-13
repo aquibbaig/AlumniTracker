@@ -17,7 +17,8 @@ var alumniSchema = new Schema({
   email:{ type: String, },
   country:{ type: String, },
   city:{ type: String, },
-  expertise: []
+  expertise: [],
+  is: { type: String, default: 'alumni'}
 });
 
 alumniSchema.methods = {

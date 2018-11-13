@@ -17,7 +17,8 @@ var studentSchema = new Schema({
   country:{ type: String, },
   city:{ type: String, },
   expertise: [],
-  college:{ type: String}
+  college:{ type: String},
+  is: { type: String, default: 'student'}
 
 });
 
