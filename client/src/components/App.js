@@ -6,7 +6,12 @@ import Regstud from './Regstud';
 import Search from './Search';
 import AlumniLogin from './AlumniLogin';
 import AlumniProfile from './AlumniProfile'
+import StudentLogin from './StudentLogin';
+import StudentProfile from './StudentProfile';
+import NewPost from './newPost';
+import SearchProfile from './SearchProfile'
 import 'whatwg-fetch';
+
 
 class App extends Component {
   constructor(props){
@@ -14,7 +19,8 @@ class App extends Component {
     this.state = {
       loggedIn : false,
       username : null,
-      data : {}
+      data : {},
+      profiles: []
     }
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
@@ -23,14 +29,31 @@ class App extends Component {
 
   componentDidMount() {
     this.getUser()
+    this.getProfiles()
   }
 
   updateUser (userObject) {
     this.setState(userObject)
   }
 
+  getProfiles() {
+    fetch('http://localhost:8080/users/all/profiles', {
+      method: 'GET'
+    })
+      .then(response => response.json())
+      .then(res => {
+        console.log(res);
+        this.setState({
+          profiles: res
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+
   getUser() {
     let token = localStorage.getItem('jwtToken');
+    console.log(token)
     fetch('http://localhost:8080/users/' + token ,{
       method: 'GET'
     })
@@ -66,8 +89,12 @@ class App extends Component {
             <Route exact path="/regstud" component={Regstud}/>
             <Route exact path="/regalum" component={Regalum}/>
             <Route exact path="/search" component={Search}/>
+            <Route exact path="/newpost" component={NewPost} />
             <Route exact path="/alumniLogin" render={() => <AlumniLogin updateUser={this.updateUser} />} />
-            <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />  //have to send data
+            <Route exact path="/studentLogin" render={() => <StudentLogin updateUser={this.updateUser} />} />
+            <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />
+            <Route exact path="/studentProfile" render={() => <StudentProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />
+            <Route exact path="/searchProfile" render={() => <SearchProfile profiles={this.state.profiles} /> } />
           </Switch>
         </div>
       </Router>

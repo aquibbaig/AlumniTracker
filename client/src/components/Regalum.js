@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import { Redirect } from 'react-router-dom'
 import { Button, Container, Form, Checkbox, Select } from 'semantic-ui-react';
-import { countryOptions, ExpertiseOptions, cityList } from '../common';
+import { countryOptions, ExpertiseOptions, cityList, collegeList } from '../common';
 import 'whatwg-fetch';
 
 const GenderOptions = [
@@ -22,6 +22,7 @@ class Regalum extends Component {
 			confirmPassword: '',
 			about:'',
       gender:'',
+      college:'',
       contactNo:'',
       email:'',
       country:'',
@@ -37,11 +38,18 @@ class Regalum extends Component {
     this.handleExpertise = this.handleExpertise.bind(this)
     this.handleCountryChange = this.handleCountryChange.bind(this)
     this.handleCityChange = this.handleCityChange.bind(this)
+    this.handleCollegeChange = this.handleCollegeChange.bind(this)
   }
 
   handleGenderChange(event, value) {
     this.setState({
       gender: value.value
+    })
+  }
+
+  handleCollegeChange(event, value) {
+    this.setState({
+      college: value.value
     })
   }
 
@@ -135,7 +143,9 @@ class Regalum extends Component {
       <Select fluid name="country" label='Country' search options={countryOptions} placeholder='Country' onChange={this.handleCountryChange} />
         <Select fluid name="city" label='City' search options={cityList} placeholder='City' onChange={this.handleCityChange} />
       </div>
-
+      <h3>Education Place : </h3>
+      <label><b>Graduation College :</b></label>
+      <Form.Select placeholder='College'name="gender" search fluid selection options={collegeList} onChange={this.handleCollegeChange} />
       <h3>Workplace and Expertise : </h3>
       <label><b>Workplace</b></label>
       <input name="workplace"  placeholder="Your Workplace or Company" value={this.state.workplace} onChange={this.handleChange}/>

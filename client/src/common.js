@@ -260,11 +260,21 @@ export const ExpertiseOptions = [
 ]
 
 export const cityList = [
-  { key: 'BNG', text: 'Bengaluru', value: 'BNG'},
-  { key: 'DLH', text: 'New Delhi', value: 'DLH'},
-  { key: 'HYD', text: 'Hyderabad', value: 'HYD'},
-  { key: 'MUM', text: 'Mumbai', value: 'MUM'},
-  { key: 'CHN', text: 'Chennai', value: 'CHN'},
-  { key: 'KOL', text: 'Kolkata', value: 'KOL'},
-  { key: 'PUN', text: 'Pune', value: 'PUN'}
+  { key: 'BNG', text: 'Bengaluru', value: 'Bengaluru'},
+  { key: 'DLH', text: 'New Delhi', value: 'Delhi'},
+  { key: 'HYD', text: 'Hyderabad', value: 'Hyderabad'},
+  { key: 'MUM', text: 'Mumbai', value: 'Mumbai'},
+  { key: 'CHN', text: 'Chennai', value: 'China'},
+  { key: 'KOL', text: 'Kolkata', value: 'Kolkata'},
+  { key: 'PUN', text: 'Pune', value: 'Pune'}
+]
+
+export const collegeList = [
+  { key: 'CET', text: 'CET', value: 'Bengaluru'},
+  { key: 'VSSUT', text: 'VSSUT', value: 'Delhi'},
+  { key: 'PMEC', text: 'PMEC', value: 'Hyderabad'},
+  { key: 'KIIT', text: 'KIIT', value: 'KIIT'},
+  { key: 'ITER', text: 'ITER', value: 'ITER'},
+  { key: 'GITA', text: 'GITA', value: 'GITA'},
+  { key: 'IGIT', text: 'IGIT', value: 'IGIT'}
 ]

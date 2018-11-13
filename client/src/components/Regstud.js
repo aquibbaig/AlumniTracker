@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import { Button, Container, Form, Checkbox } from 'semantic-ui-react';
-import { countryOptions, ExpertiseOptions, cityList } from '../common'
+import { countryOptions, ExpertiseOptions, cityList, collegeList } from '../common'
 
 const GenderOptions = [
   { key: 'm', text: 'Male', value: 'male' },
@@ -25,9 +25,7 @@ class Regstud extends Component {
       city:'',
       expertise: [],
       skills: [],
-      college:'',
-      school:'',
-      gradcollege:''
+      college:''
 
     }
      // this.handleSubmit = this.handleSubmit.bind(this)
@@ -37,6 +35,8 @@ class Regstud extends Component {
      this.handleExpertise = this.handleExpertise.bind(this)
      this.handleCountryChange = this.handleCountryChange.bind(this)
      this.handleCityChange = this.handleCityChange.bind(this)
+     this.handleCollegeChange = this.handleCollegeChange.bind(this)
+
    }
 
    handleGenderChange(event, value) {
@@ -48,6 +48,12 @@ class Regstud extends Component {
    handleCountryChange(event, value) {
      this.setState({
        country: value.value
+     })
+   }
+
+   handleCollegeChange(event, value) {
+     this.setState({
+       college: value.value
      })
    }
 
@@ -109,22 +115,7 @@ class Regstud extends Component {
      <Form.TextArea name="about" value={this.state.about} label='About' placeholder='Tell us more about you...' onChange={this.handleChange} />
 
      <h3> Academic Details : </h3>
-     <Form.Field>
-     <label><b>School</b></label>
-        <input name="school" placeholder="School" value = {this.state.school} onChange={this.handleChange}/>
-     </Form.Field>
-     <Form.Field>
-     <label><b>Intermediate(+2) College</b></label>
-        <input name="college" placeholder="Intermediate(+2) College" value = {this.state.college} onChange={this.handleChange}/>
-      </Form.Field>
-      <Form.Field>
-     <label><b>Graduating College</b></label>
-        <input name="gradcollege" placeholder="Graduating College" value = {this.state.gradcollege} onChange={this.handleChange}/>
-        </Form.Field>
-        <Form.Field>
-     <label><b>Post Graduating College</b></label>
-        <input name="postgradcollege" placeholder="Post Graduating College" value = {this.state.postgradcollege} onChange={this.handleChange}/>
-        </Form.Field>
+     <Form.Select fluid label='College' name="college" options={collegeList} placeholder='Gender' onChange={this.handleCollegeChange} />
 
 
      <h3> Contact Details : </h3>
