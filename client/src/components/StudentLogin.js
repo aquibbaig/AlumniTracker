@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Button, Form, Select, TextArea } from 'semantic-ui-react';
-import Background from '../bg.jpg';
+
 
 
 

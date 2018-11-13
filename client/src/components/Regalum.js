@@ -111,10 +111,10 @@ class Regalum extends Component {
 	}
   else{
     return (
-      <div className="container-fluid" style={{background:'blue'}}>
-      <br/>
-      <div className="container" style={{background:'white'}}>
-        <h1><center> ALUMNI REGISTRATION</center></h1>
+      <div className="container-fluid">
+      <br/><br/><br/>
+      <div className="container" style={{background:'white', border:'3px solid blue'}}><br/>
+        <h1><center style={{color:'blue'}}> ALUMNI REGISTRATION</center></h1>
       <Form id="regAlum" onSubmit={this.handleSubmit}>
         <h3> Personal Details : </h3>
       <Form.Group widths='equal'>
@@ -175,6 +175,7 @@ class Regalum extends Component {
       </Form>
       <br/>
     </div>
+    <br/>
     </div>
     );
   }

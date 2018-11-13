@@ -113,10 +113,10 @@ class Regstud extends Component {
   else{
     return (
 
-      <div className="container-fluid" style={{background:'blue'}}>
-      <br />
-      <div className="container" style={{ background:'white'}}>
-      <h1><center> STUDENT REGISTRATION </center></h1>
+      <div className="container-fluid">
+      <br /><br/><br/>
+      <div className="container" style={{ background:'white', border:'3px solid blue'}}><br/><br/>
+      <h1><center style={{color:'blue'}}> STUDENT REGISTRATION </center></h1><br/>
     <Form id="regStud" onSubmit={this.handleSubmit}>
       <h3> Personal Details : </h3>
       <Form.Group widths='equal'>
@@ -177,7 +177,9 @@ class Regstud extends Component {
     </Form>
     <br/>
   </div>
+  <br/>
   </div>
+
     );
   }
   }
