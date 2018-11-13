@@ -13,6 +13,7 @@ import SearchProfile from './SearchProfile'
 import Jobs from './JobInternship';
 import {AlumniCategoryOptions} from '../common';
 import {StudentCategoryOptions} from '../common';
+import Events from './Events'
 import 'whatwg-fetch';
 
 
@@ -93,12 +94,14 @@ class App extends Component {
             <Route exact path="/regalum" component={Regalum}/>
             <Route exact path="/search" component={Search}/>
             <Route exact path="/studentNewpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} options={StudentCategoryOptions} /> } />
+            <Route exact path="/alumniNewpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} options={AlumniCategoryOptions} /> } />
             <Route exact path="/alumniLogin" render={() => <AlumniLogin updateUser={this.updateUser} />} />
             <Route exact path="/studentLogin" render={() => <StudentLogin updateUser={this.updateUser} />} />
-            <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />
+            <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} profiles={this.state.profiles}/>} />
             <Route exact path="/studentProfile" render={() => <StudentProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} profiles={this.state.profiles}/>} />
             <Route exact path="/searchProfile" render={() => <SearchProfile profiles={this.state.profiles} /> } />
             <Route exact path="/jobs" component={Jobs} />
+            <Route exact path="/events" component={Events} />
           </Switch>
         </div>
       </Router>

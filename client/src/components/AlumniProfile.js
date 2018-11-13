@@ -1,23 +1,25 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { Header, Button, Image, Divider } from 'semantic-ui-react';
+import { Header, Button, Image, Divider, Grid, Container} from 'semantic-ui-react';
 import Home from './Home';
+import SearchProfile from './SearchProfile'
+import AlumniSideBar from './AlumniSideBar'
 
 class AlumniProfile extends Component {
   constructor(){
     super();
-    this.state = {
-      firstname : '',
-      lastname : '',
-      gender : '',
-      username : '',
-      email : '',
-      contactNo : '',
-      country : '',
-      city : '',
-      expertise : '',
-      about : ''
-    }
+    // this.state = {
+    //   firstname : '',
+    //   lastname : '',
+    //   gender : '',
+    //   username : '',
+    //   email : '',
+    //   contactNo : '',
+    //   country : '',
+    //   city : '',
+    //   expertise : '',
+    //   about : ''
+    // }
     this.logout = this.logout.bind(this)
   }
 
@@ -40,21 +42,21 @@ logout(event){
     })
 }
 
-componentDidMount() {
-  console.log(this.props);
-  this.setState({
-    firstname : this.props.userdata.firstname,
-    lastname : this.props.userdata.lastname,
-    gender : this.props.userdata.gender,
-    username : this.props.userdata.username,
-    email : this.props.userdata.email,
-    contactNo : this.props.userdata.contactNo,
-    country : this.props.userdata.country,
-    city : this.props.userdata.city,
-    expertise : this.props.userdata.expertise,
-    about : this.props.userdata.about
-  })
-}
+// componentDidMount() {
+//   console.log(this.props);
+//   this.setState({
+//     firstname : this.props.userdata.firstname,
+//     lastname : this.props.userdata.lastname,
+//     gender : this.props.userdata.gender,
+//     username : this.props.userdata.username,
+//     email : this.props.userdata.email,
+//     contactNo : this.props.userdata.contactNo,
+//     country : this.props.userdata.country,
+//     city : this.props.userdata.city,
+//     expertise : this.props.userdata.expertise,
+//     about : this.props.userdata.about
+//   })
+// }
 
 // componentDidUpdate(prevProps) {
 //     console.log(prevProps);
@@ -81,10 +83,21 @@ render(){
     //data is present in the state of the component
   return(
     <div>
-      <Header as = "h1">{this.state.username} </Header>
-      <p> {this.state.about} </p>
+      <Container>
+        <br />
+        <Grid columns={2} >
+          <Grid.Row>
+            <Grid.Column width={4}>
+              <AlumniSideBar curr="connect" />
+            </Grid.Column>
+            <Grid.Column width={9}>
+              <SearchProfile profiles={this.props.profiles}/>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
 
-      <Button color="red" onClick={this.logout}>LogOut</Button>
+        <Button color="red" onClick={this.logout}>LogOut</Button>
+      </Container>
     </div>
   );
 }

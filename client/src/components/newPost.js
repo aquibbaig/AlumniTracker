@@ -53,14 +53,6 @@ class newPost extends Component {
       .catch(err => console.log(err))
   }
 
-  componentDidMount() {
-    console.log(this.props)
-    this.setState({
-      username : this.props.userdata.username,
-      email : this.props.userdata.email
-    })
-  }
-
   render() {
     return (
       <Container>

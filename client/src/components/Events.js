@@ -1,5 +1,5 @@
 import React from 'react';
-import StudentSideBar from './StudentSideBar'
+import AlumniSideBar from './AlumniSideBar'
 import { Grid, Card, Container } from 'semantic-ui-react';
 
 const items = [
@@ -32,7 +32,7 @@ const Jobs = () => {
       <Grid columns={2} >
         <Grid.Row>
           <Grid.Column width={4}>
-            <StudentSideBar curr="jobs" />
+            <AlumniSideBar curr="events" />
           </Grid.Column>
           <Grid.Column width={9}>
             <Card.Group centered items={items} />

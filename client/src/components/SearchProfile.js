@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-
 import SearchInput, {createFilter} from 'react-search-input'
 import '../styles/react-search-input.css'
 import {Card, Image, Container, Button} from 'semantic-ui-react'

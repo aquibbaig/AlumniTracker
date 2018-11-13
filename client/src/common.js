@@ -270,9 +270,9 @@ export const cityList = [
 ]
 
 export const collegeList = [
-  { key: 'CET', text: 'CET', value: 'Bengaluru'},
-  { key: 'VSSUT', text: 'VSSUT', values: 'Delhi'},
-  { key: 'PMEC', text: 'PMEC', value: 'Hyderabad'},
+  { key: 'CET', text: 'CET', value: 'CET'},
+  { key: 'VSSUT', text: 'VSSUT', values: 'VSSUT'},
+  { key: 'PMEC', text: 'PMEC', value: 'PMEC'},
   { key: 'KIIT', text: 'KIIT', value: 'KIIT'},
   { key: 'ITER', text: 'ITER', value: 'ITER'},
   { key: 'GITA', text: 'GITA', value: 'GITA'},
