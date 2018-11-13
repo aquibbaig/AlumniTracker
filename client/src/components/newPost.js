@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Link, Redirect } from 'react-router-dom';
-import { Form, Button, TextArea, Container, Divider} from 'semantic-ui-react';
+import { Form, Button, TextArea, Container, Grid} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import {categoryOptions} from '../common';
 import StudentSideBar from './StudentSideBar';
@@ -63,19 +63,25 @@ class newPost extends Component {
 
   render() {
     return (
-      <div>
-      <StudentSideBar curr="NewPost" />
       <Container>
-      <Divider />
-      <Form id="submitform" onSubmit={this.handleSubmit}>
-      <Form.Field>
-      <TextArea name="post" placeholder="Write something" onChange={this.handleChange}/>
-      </Form.Field>
-      <Form.Select fluid label='Category' name="category" options={categoryOptions} placeholder='Category' onChange={this.handleCategoryChange} />
-      <Button type='submit'>Submit</Button>
-      </Form>
+        <br />
+        <Grid columns={2} >
+          <Grid.Row>
+            <Grid.Column width={4}>
+              <StudentSideBar curr="NewPost" />
+            </Grid.Column>
+            <Grid.Column width={9}>
+              <Form id="submitform" onSubmit={this.handleSubmit}>
+                <Form.Field>
+                  <TextArea name="post" placeholder="Write something" onChange={this.handleChange}/>
+                </Form.Field>
+                <Form.Select fluid label='Category' name="category" options={categoryOptions} placeholder='Category' onChange={this.handleCategoryChange} />
+                <Button type='submit'>Submit</Button>
+              </Form>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </Container>
-      </div>
     );
   }
 }
