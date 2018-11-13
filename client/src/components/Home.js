@@ -16,15 +16,15 @@ class Home extends Component {
     }
     else {
     return (
-      <div className = "container-fluid" style={{background:'blue',padding:'100px', height:'650px'}}>
+      <div className = "container-fluid" style={{background:'blue',padding:'100px', height:'850px'}}>
       <center>
-      <div >
-        <p style={{fontSize:'60px',color:'white'}}>Find  new Connections?<br/>Alumni Tracker</p>
+      <div style={{marginTop:'100px'}}>
+        <p style={{fontSize:'60px',color:'white'}}>People, Institute, Jobs, Community.<br/>.. AlumniTracker</p>
         <Button as="a" color='green' href="/regstud">Register as a Student</Button>
-        <Button as="a" color='green' href="/studentLogin">Login as a Student</Button>
+        <Button as="a" color='white' href="/studentLogin">Login as a Student</Button>
         <br/><br/>
         <Button as="a" color='green' href="/regalum">Register as an Alumni</Button>
-        <Button as="a" color='green' href="/alumniLogin">Login as an Alumni</Button>
+        <Button as="a" color='white' href="/alumniLogin">Login as an Alumni</Button>
 
       </div>
       </center>
