@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Link, Redirect } from 'react-router-dom';
 import { Form, Button, TextArea, Container, Grid} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
-import {categoryOptions} from '../common';
+// import {categoryOptions} from '../common';
 import StudentSideBar from './StudentSideBar';
 
 class newPost extends Component {
@@ -75,7 +75,7 @@ class newPost extends Component {
                 <Form.Field>
                   <TextArea name="post" placeholder="Write something" onChange={this.handleChange}/>
                 </Form.Field>
-                <Form.Select fluid label='Category' name="category" options={categoryOptions} placeholder='Category' onChange={this.handleCategoryChange} />
+                <Form.Select fluid label='Category' name="category" options={this.props.options} placeholder='Category' onChange={this.handleCategoryChange} />
                 <Button type='submit'>Submit</Button>
               </Form>
             </Grid.Column>

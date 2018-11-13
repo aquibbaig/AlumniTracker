@@ -11,6 +11,8 @@ import StudentProfile from './StudentProfile';
 import NewPost from './newPost';
 import SearchProfile from './SearchProfile'
 import Jobs from './JobInternship';
+import {AlumniCategoryOptions} from '../common';
+import {StudentCategoryOptions} from '../common';
 import 'whatwg-fetch';
 
 
@@ -90,7 +92,7 @@ class App extends Component {
             <Route exact path="/regstud" component={Regstud}/>
             <Route exact path="/regalum" component={Regalum}/>
             <Route exact path="/search" component={Search}/>
-            <Route exact path="/newpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} /> } />
+            <Route exact path="/studentNewpost" render={() => <NewPost updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data} options={StudentCategoryOptions} /> } />
             <Route exact path="/alumniLogin" render={() => <AlumniLogin updateUser={this.updateUser} />} />
             <Route exact path="/studentLogin" render={() => <StudentLogin updateUser={this.updateUser} />} />
             <Route exact path="/alumniProfile" render={() => <AlumniProfile updateUser={this.updateUser} loggedIn={this.state.loggedIn} userdata={this.state.data}/>} />

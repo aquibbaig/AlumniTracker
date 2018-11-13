@@ -271,7 +271,7 @@ export const cityList = [
 
 export const collegeList = [
   { key: 'CET', text: 'CET', value: 'Bengaluru'},
-  { key: 'VSSUT', text: 'VSSUT', value: 'Delhi'},
+  { key: 'VSSUT', text: 'VSSUT', values: 'Delhi'},
   { key: 'PMEC', text: 'PMEC', value: 'Hyderabad'},
   { key: 'KIIT', text: 'KIIT', value: 'KIIT'},
   { key: 'ITER', text: 'ITER', value: 'ITER'},
@@ -279,9 +279,16 @@ export const collegeList = [
   { key: 'IGIT', text: 'IGIT', value: 'IGIT'}
 ]
 
-export const categoryOptions = [
+export const AlumniCategoryOptions = [
   { key: 'Internship', text: 'Internship', value: 'Internship'},
   { key: 'Job', text: 'Job', value: 'Job'},
+  { key: 'Reserach', text: 'Reserach', value: 'Reserach'},
+  { key: 'Others', text: 'Others', value: 'Others'}
+]
+
+export const StudentCategoryOptions = [
+  { key: 'Project', text: 'Project', value: 'Project'},
+  { key: 'TechBlog', text: 'TechBlog', value: 'TechBlog'},
   { key: 'Reserach', text: 'Reserach', value: 'Reserach'},
   { key: 'Others', text: 'Others', value: 'Others'}
 ]
