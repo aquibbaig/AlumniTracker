@@ -4,7 +4,6 @@ import { Form, Button, TextArea, Container, Grid} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 // import {categoryOptions} from '../common';
 import StudentSideBar from './StudentSideBar';
-import AlumniSideBar from './AlumniSideBar';
 
 class newPost extends Component {
   constructor(props){
@@ -56,27 +55,31 @@ class newPost extends Component {
 
   render() {
     return (
-      <Container>
-        <br />
-        <br />
-        <br />
+      <div class='container' >
+        <br /><br /><br /><br /><br /><br /><br />
         <Grid columns={2} >
           <Grid.Row>
             <Grid.Column width={4}>
-              {this.props.name==="alumni"? <AlumniSideBar curr="NewPost" /> : <StudentSideBar curr="NewPost" /> }
+              <StudentSideBar curr="NewPost" />
+
             </Grid.Column>
             <Grid.Column width={9}>
+              <div class='container' style={{border:'1px solid blue'}}>
+                <br /><br/>
               <Form id="submitform" onSubmit={this.handleSubmit}>
                 <Form.Field>
-                  <TextArea name="post" placeholder="Write something" onChange={this.handleChange}/>
-                </Form.Field>
-                <Form.Select fluid label='Category' name="category" options={this.props.options} placeholder='Category' onChange={this.handleCategoryChange} />
-                <Button type='submit'>Submit</Button>
+                  <TextArea name="post" placeholder="Write something" style={{border:'1px solid'}} onChange={this.handleChange }/>
+                </Form.Field><br/><br/>
+              <Form.Select fluid label='Category' style={{border:'1px solid'}} name="category" options={this.props.options} placeholder='Category' onChange={this.handleCategoryChange} />
+                <br/><br/>
+                <center><Button type='submit'style={{backgroundColor:'blue',color:'white'}}>Submit</Button></center>
+                <br/><br/><br/>
               </Form>
+              </div>
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </Container>
+      </div>
     );
   }
 }

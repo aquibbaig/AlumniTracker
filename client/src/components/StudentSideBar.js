@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 const StudentSideBar = ({curr}) => {
   return (
+    <div>
       <Menu vertical>
         <Link to="/studentProfile"><Menu.Item name='Connect' active={curr === 'Connect'}>Connect</Menu.Item></Link>
         <Link to="/jobs"><Menu.Item name='jobs' active={curr === 'jobs'}>Jobs and Internships</Menu.Item></Link>
@@ -11,6 +12,7 @@ const StudentSideBar = ({curr}) => {
         <Link to="/feed"><Menu.Item name='PublicFeed' active={curr === 'PublicFeed'}>Public Feed</Menu.Item></Link>
         <Menu.Item name='help' active={curr === 'help'}>Ask for help</Menu.Item>
       </Menu>
+      </div>
   );
 };
 
