@@ -19,7 +19,8 @@ var alumniSchema = new Schema({
   city:{ type: String, },
   expertise: [],
   is: { type: String, default: 'alumni'},
-  upvotes : {type: Number, default: 0}
+  upvotes : {type: Number, default: 0},
+  workplace: { type: String }
 });
 
 alumniSchema.methods = {
