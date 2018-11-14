@@ -34,7 +34,7 @@ class newPost extends Component {
 
   handleSubmit(event) {
     let d = new Date().toString()
-    console.log(d.slice(0,24));
+    // console.log(d.slice(0,24));
     console.log(this.state)
     fetch('http://localhost:8080/newpost', {
       method: 'POST',
@@ -51,6 +51,14 @@ class newPost extends Component {
     })
       .then(res => console.log(res))
       .catch(err => console.log(err))
+  }
+
+  componentDidMount() {
+    console.log(this.props)
+    this.setState({
+      username : this.props.userdata.username,
+      email : this.props.userdata.email
+    })
   }
 
   render() {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Button, TextArea, Container, Header, Grid} from 'semantic-ui-react';
+import {Card, Button, TextArea, Container, Header, Grid, Icon, Label} from 'semantic-ui-react';
 import StudentSideBar from './StudentSideBar';
 import 'whatwg-fetch';
 
@@ -22,6 +22,7 @@ class Feed extends Component {
       this.setState({
         posts : res
       })
+      console.log(this.state.posts )
     }).catch(error => {
       console.log(error)
     })
@@ -40,13 +41,21 @@ class Feed extends Component {
             </Grid.Column>
             <Grid.Column width={9}>
             {this.state.posts.reverse().map(post => (
-                    <Card>
+                    <Card fluid>
                       <Card.Content>
-                        <Card.Header>{post.username} {post.email}</Card.Header>
-                        <Card.Meta>
-                          <span className='date'>{post.post}</span>
-                        </Card.Meta>
-                        <Card.Description><b>Category: </b>{post.category}</Card.Description>
+
+                        <Card.Header><Icon name = "user circle"></Icon>{post.username}<h5>@{post.email}</h5></Card.Header>
+
+                        <Card.Description>
+                          <span className='date' style = {{fontSize : '20px'}}><b>{post.post}</b></span>
+                        </Card.Description>
+                        <br />
+                        <Label as='a' color="teal" tag>{post.category}</Label>
+                        <br />
+                        <br />
+                        <Icon name="arrow circle up"></Icon>UpVote
+                        <span>&nbsp;&nbsp;&nbsp;</span>
+                        <Icon name="arrow circle down"></Icon>DownVote
                       </Card.Content>
                     </Card>
                   ))}

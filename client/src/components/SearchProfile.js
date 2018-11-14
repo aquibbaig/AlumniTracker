@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import SearchInput, {createFilter} from 'react-search-input'
 import '../styles/react-search-input.css'
-import {Card, Image, Container, Button} from 'semantic-ui-react'
+import {Card, Image, Container, Button, Icon} from 'semantic-ui-react'
 
 const KEYS_TO_FILTERS = ['firstname', 'city']
 
@@ -34,6 +34,9 @@ class SearchProfile extends Component {
                       <Card.Meta>
                         <span className='date'>{profile.about}</span>
                       </Card.Meta>
+
+                          <Icon name='chart pie'/><span><b> Credits : </b>{profile.upvotes} </span>
+
                       <Card.Description>based in {profile.city}</Card.Description>
                     </Card.Content>
                   </Card>
