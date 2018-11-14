@@ -105,7 +105,8 @@ class App extends Component {
             <Route exact path="/jobs" component={Jobs} />
             <Route exact path="/events" component={Events} />
             <Route path="/users/:userId" component={UserInfo} />
-            <Route exact path="/feed" component={Feed} />
+            <Route exact path="/feedAlumni" render={() => <Feed name="alumni" />} />
+            <Route exact path="/feedStudent" render={() => <Feed name="student" />} />  
           </Switch>
         </div>
       </Router>

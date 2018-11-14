@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Card, Button, TextArea, Container, Header, Grid, Icon, Label} from 'semantic-ui-react';
 import StudentSideBar from './StudentSideBar';
+import AlumniSideBar from './AlumniSideBar';
 import 'whatwg-fetch';
 
 class Feed extends Component {
@@ -37,7 +38,7 @@ class Feed extends Component {
         <Grid columns={2} >
           <Grid.Row>
             <Grid.Column width={4}>
-              <StudentSideBar curr="PublicFeed" />
+              {this.props.name==="alumni" ? <AlumniSideBar curr="feed" /> : <StudentSideBar curr="feed" />}
             </Grid.Column>
             <Grid.Column width={9}>
             {this.state.posts.reverse().map(post => (

@@ -4,6 +4,7 @@ import { Form, Button, TextArea, Container, Grid} from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 // import {categoryOptions} from '../common';
 import StudentSideBar from './StudentSideBar';
+import AlumniSideBar from './AlumniSideBar'
 
 class newPost extends Component {
   constructor(props){
@@ -68,8 +69,7 @@ class newPost extends Component {
         <Grid columns={2} >
           <Grid.Row>
             <Grid.Column width={4}>
-              <StudentSideBar curr="NewPost" />
-
+              {this.props.name==="alumni" ? <AlumniSideBar curr="NewPost" /> : <StudentSideBar curr="NewPost" />}
             </Grid.Column>
             <Grid.Column width={9}>
               <div class='container' style={{border:'1px solid blue'}}>
