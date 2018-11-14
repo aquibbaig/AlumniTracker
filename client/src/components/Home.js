@@ -21,7 +21,7 @@ class Home extends Component {
     }
     else {
     return (
-      <div className = "container-fluid" style={{background:'blue',padding:'100px', height:'850px'}}>
+      <div className = "container-fluid" style={{background:'blue',padding:'100px', height:'600px'}}>
       <center>
       <div style={{marginTop:'100px'}}>
         <p style={{fontSize:'60px',color:'white'}}>
