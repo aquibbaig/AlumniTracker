@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
+import { Button, Statistic } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+
+const items = [
+  { key: 'Institutes', label: 'Institiutes', value: '10+' },
+  { key: 'views', label: 'Views', value: '31,200' },
+  { key: 'Users', label: 'Users', value: '2000' },
+]
 
 class Home extends Component {
   constructor(){
@@ -25,7 +31,7 @@ class Home extends Component {
         <br/><br/>
         <Button as="a" color='green' href="/regalum">Register as an Alumni</Button>
         <Button as="a" color='white' href="/alumniLogin">Login as an Alumni</Button>
-
+        <Statistic.Group items={items} />
       </div>
       </center>
       </div>

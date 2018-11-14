@@ -28,6 +28,10 @@ class UserInfo extends Component {
         <br />
       <Suspense fallback={loadingImg}>
         <div>{this.state.details.about}</div>
+        <div>{this.state.details.email}</div>
+        <div>{this.state.details.firstname} {this.state.details.lastname} </div>
+        <div>{this.state.details.contactNo}</div>
+        <div>{this.state.details.college}</div>
       </Suspense>
       </div>
     );
