@@ -111,7 +111,7 @@ class Regalum extends Component {
 	}
   else{
     return (
-      <div className="container-fluid">
+      <div className="container-fluid" style={{backgroundImage:`url(${"./back.jpeg"})`,padding:'100px', height:'1500px', backgroundSize:'cover'}}>
       <br/><br/><br/>
       <div className="container" style={{background:'white', border:'3px solid blue'}}><br/>
         <h1><center style={{color:'blue'}}> ALUMNI REGISTRATION</center></h1>

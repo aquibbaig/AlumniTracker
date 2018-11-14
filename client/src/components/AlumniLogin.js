@@ -68,25 +68,25 @@ class AlumniLogin extends Component {
       else
       {
         return(
-          <div className="container">
+          <div className="container-fluid" style={{backgroundImage:`url(${"./back.jpeg"})`,padding:'100px', height:'950px', backgroundSize:'cover'}}>
             <br/><br/><br/><br/><br/><br/><br/><br/>
             <div class="row">
               <div class="col-md-12 col-lg-4 col-sm-12">
               </div>
-              <div class="col-md-12 col-lg-4 col-sm-12" style={{border:'3px solid blue'}}>
+              <div class="col-md-12 col-lg-4 col-sm-12" style={{border:'3px solid #0C3D5B' ,backgroundColor:'white'}}>
                 <br/><br/>
-                <center style={{color:'blue'}}><h1> ALUMNI LOGIN </h1></center><br/><br/>
+                <center style={{color:'#0C3D5B'}}><h1> ALUMNI LOGIN </h1></center><br/><br/>
                 <br/><br/>
                 <Form id="loginform" onSubmit={this.handleSubmit}>
                   <Form.Field>
-                    <label>UserName</label>
+                    <label style={{fontSize:'20px'}}>UserName</label><br/>
                     <input name="username" placeholder="username" value = {this.state.username} onChange={this.handleChange}/>
                   </Form.Field>
                   <Form.Field>
-                    <label>Password</label>
+                    <label style={{fontSize:'20px'}}>Password</label><br/>
                     <input name="password" type="password" placeholder="password" value={this.state.password} onChange={this.handleChange}/>
                   </Form.Field><br/><br/>
-                  <center><Button type='submit' style={{backgroundColor:'blue', color:'white'}}>Login</Button></center><br/><br/><br/><br/><br/><br/><br/>
+                  <center><Button type='submit' style={{backgroundColor:'#0C3D5B', color:'white'}}>Login</Button></center><br/><br/><br/><br/><br/><br/><br/>
                 </Form>
               </div>
               <div class="col-md-12 col-lg-4 col-sm-12">

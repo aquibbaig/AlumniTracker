@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import Typing from 'react-typing-animation'
+import { Card, Icon } from 'semantic-ui-react'
 
 class Home extends Component {
   constructor(){
@@ -21,10 +22,11 @@ class Home extends Component {
     }
     else {
     return (
-      <div className = "container-fluid" style={{background:'blue',padding:'100px', height:'600px'}}>
+      <div>
+      <div className = "container-fluid" style={{backgroundImage:`url(${"./back.jpeg"})`,padding:'100px', height:'950px', backgroundSize:'cover'}}>
       <center>
-      <div style={{marginTop:'100px'}}>
-        <p style={{fontSize:'60px',color:'white'}}>
+      <div style={{marginTop:'100px'}} class="container-fluid">
+        <p style={{fontSize:'65px',color:'white'}}>
           <span>AlumniTracker.</span>
         <br/>
           <Typing loop="true">
@@ -41,14 +43,20 @@ class Home extends Component {
             <Typing.Delay ms={1000}/>
           </Typing>
         </p>
-        <Button as="a" color='green' href="/regstud">Register as a Student</Button>
-        <Button as="a" color='white' href="/studentLogin">Login as a Student</Button>
+        <Button as="a" className="btn btn-success" color='green' href="/alumniLogin" style={{fontSize:'20px'}}>Login as an Alumni</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button as="a" className="btn btn-success" color='green' href="/studentLogin" style={{fontSize:'20px'}}>Login as a Student</Button>
         <br/><br/>
-        <Button as="a" color='green' href="/regalum">Register as an Alumni</Button>
-        <Button as="a" color='white' href="/alumniLogin">Login as an Alumni</Button>
+
+        <i><a style={{color:'white', fontSize:'20px'}} href="/regalum"><u>Register as an Alumni</u></a></i>&nbsp;&nbsp;&nbsp;&nbsp;
+        <i><a style={{color:'white', fontSize:'20px'}} href="/regstud"><u>Register as a Student</u></a></i>
+
+        </div>
+      </center>
+      </div>
+      <div className="container-fluid">
+        <br/>
 
       </div>
-      </center>
       </div>
     );
   }

@@ -97,7 +97,7 @@ render(){
             </Grid.Column>
           </Grid.Row>
         </Grid>
-
+        <Button color="green" href="http://www.localhost:3001/">Community</Button>
         <Button color="red" onClick={this.logout}>LogOut</Button>
       </Container>
     </div>

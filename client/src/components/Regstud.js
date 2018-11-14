@@ -113,9 +113,8 @@ class Regstud extends Component {
   else{
     return (
 
-      <div className="container-fluid">
-      <br /><br/><br/>
-      <div className="container" style={{ background:'white', border:'3px solid blue'}}><br/><br/>
+      <div className="container-fluid" style={{backgroundImage:`url(${"./back.jpeg"})`,padding:'100px', height:'1400px', backgroundSize:'cover'}}>
+      <div className="container" style={{ background:'white', border:'3px solid blue',overflow:'scroll'}}>
       <h1><center style={{color:'blue'}}> STUDENT REGISTRATION </center></h1><br/>
     <Form id="regStud" onSubmit={this.handleSubmit}>
       <h3> Personal Details : </h3>
