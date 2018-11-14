@@ -289,6 +289,6 @@ export const AlumniCategoryOptions = [
 export const StudentCategoryOptions = [
   { key: 'Project', text: 'Project', value: 'Project'},
   { key: 'TechBlog', text: 'TechBlog', value: 'TechBlog'},
-  { key: 'Reserach', text: 'Reserach', value: 'Reserach'},
+  { key: 'Research', text: 'Research', value: 'Research'},
   { key: 'Others', text: 'Others', value: 'Others'}
 ]

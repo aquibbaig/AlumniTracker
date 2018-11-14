@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import SearchInput, {createFilter} from 'react-search-input'
 import '../styles/react-search-input.css'
-import {Card, Image, Container, Button, Icon} from 'semantic-ui-react'
+import {Card, Image, Container, Button, Icon, Divider} from 'semantic-ui-react'
 
 const KEYS_TO_FILTERS = ['firstname', 'city']
 
@@ -21,12 +21,19 @@ class SearchProfile extends Component {
     return (
       <Container>
         <SearchInput className='search-input' onChange={this.searchUpdated}/>
+        <br />
+        <br />
+        <br />
         <Card.Group>
           {
             filteredEmails.map(profile => {
               return (
+                <Container>
+                  <Divider />
+                <div class = "row">
+                  <Image src='https://react.semantic-ui.com/images/avatar/large/elliot.jpg' size ='small' circular />
+                  <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                   <Card>
-                    <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlMNPszBzrblPa1wEIpULUqm9W2tDJpDL6lcz5cr6yZSpBjiVhTw' />
                     <Card.Content>
                       <Link to={`/users/${profile.username}`}>
                       <Card.Header>{profile.firstname} {profile.lastname}</Card.Header>
@@ -34,12 +41,16 @@ class SearchProfile extends Component {
                       <Card.Meta>
                         <span className='date'>{profile.about}</span>
                       </Card.Meta>
-
                           <Icon name='chart pie'/><span><b> Credits : </b>{profile.upvotes} </span>
-
                       <Card.Description>based in {profile.city}</Card.Description>
                     </Card.Content>
                   </Card>
+                  <br />
+                  <br />
+                  <br />
+
+                </div>
+              </Container>
               )}
             )}
         </Card.Group>
