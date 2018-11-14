@@ -175,6 +175,18 @@ router.post('/studentLogin',
     })
   })
 
+  router.get('/profile/upvote/:username', (req, res) => {
+    console.log("gfaksgfkaugfuasgfugaugf",req.params.username);
+    let arr;
+    alumniModel.findOneAndUpdate({username: req.params.username}, {$inc : {upvotes : 1}}, {new : true }, (err, details) => {
+      if(err) console.log(err);
+      // console.log(details);
+      else{
+        res.send(details)
+      }
+    })
+  })
+
 router.post('/logout', (req, res) => {
       if (req.user) {
           req.logout()
@@ -205,6 +217,14 @@ router.get('/all/posts', (req,res) => {
     }
   })
 })
+
+// if(details.length == 0) {
+//   studentModel.findOne({username: req.params.username}, (err, data) => {
+//     if(err) console.log(err);
+//     // console.log(data);
+//     res.send(data)
+//  })
+// }
 
 
 
